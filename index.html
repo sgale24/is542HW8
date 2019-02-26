@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Form Demo with Flexbox</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            background-color: lightgrey;
+            font-size: 12pt;
+        }
+
+        fieldset {
+            border: 0;
+            border-top: 1px solid navy;
+            border-style: dotted;
+            margin: .5em;
+        }
+
+        legend {
+            font-size: 1.5em;
+        }
+
+        .body-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            width: 50%;
+            margin: auto;
+        }
+
+        .btn-primary {
+            background-color: lightblue;
+            padding: .5em;
+            margin-top: 1em;
+        }
+
+
+        .center-box {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        input, textarea, select, button, .control {
+            font: 400 14pt system-ui;
+        }
+
+
+/*----------NavBar Style*/
+        * {padding: 0; margin: 0;}
+
+        .nav-container  {
+          font-family: sans-serif;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+              background: lightblue;
+        }
+
+        .logo {
+          margin: 0 0 0 .45em;
+        }
+            .logo a {
+              color: black;
+            }
+
+            .logo, .navigation {
+                list-style: none;
+                text-transform: uppercase;
+            }
+
+            .logo a, .navigation a {
+                text-decoration: none;
+                letter-spacing: .45rem;
+            }
+
+        .navigation  {
+          display: flex;
+        }
+
+        .navigation a {
+          display: block;
+          padding: 1em;
+          color: black;
+        }
+
+        .navigation a:hover {
+            background: skyblue;
+        }
+
+        @media all and (max-width: 990px) {
+          .nav-container {
+            flex-direction: column;
+          }
+
+          .logo {
+          margin: 0;
+        }
+
+          .navigation  {
+            width: 100%;
+            justify-content: space-around;
+          }
+        }
+
+
+        @media all and (max-width: 600px) {
+
+          .logo {
+            margin: .25em 0;
+            align-self: left;
+        }
+
+          .navigation {
+            flex-direction: column;
+          }
+
+          .navigation a {
+            text-align: center;
+            padding: 10px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+          }
+
+          .navigation li:last-of-type a {
+            border-bottom: none;
+          }
+        }
+
+
+    </style>
+</head>
+<body>
+  <div class="nav-container">
+    <h1 class="logo"><a href="#">Navigation</a></h1>
+    <ul class="navigation">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+    <div class='body-container'>
+        <h1>Initiate Pipeline Run</h1>
+        <fieldset>
+            <legend>Book</legend>
+            <select id="bookId" name="book">
+                <option value="0">&lt;none&gt;</option>
+                <option value="1">Kilbarchan Parish Record</option>
+                <option value="2">The Ely Ancestry</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Page Range</legend>
+            <input type="text" name="startPage" size="5" value="1"> –
+            <input type="text" name="endPage" size="5" value="100">
+        </fieldset>
+
+        <fieldset>
+            <legend>Tools</legend>
+            <div class="center-box">
+                <span class="control"><input type="checkbox" id="tool1" name="tools" value="frontier"> FROntIER</span>
+                <span class="control"><input type="checkbox" id="tool2" name="tools" value="greendda"> GreenDDA</span>
+                <span class="control"><input type="checkbox" id="tool3" name="tools" value="greenfie"> GreenFIE</span>
+                <span class="control"><input type="checkbox" id="tool4" name="tools" value="listreader"> ListReader</span>
+                <span class="control"><input type="checkbox" id="tool5" name="tools" value="ontoes"> OntoES</span>
+                <span class="control"><input type="checkbox" id="tool6" name="tools" value="ontosoar"> OntoSoar</span>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                Run Type
+            </legend>
+            <div class="center-box">
+                <span class="control"><input type="radio" name="runtype"> with COMET</span>
+                <span class="control"><input type="radio" name="runtype"> without COMET</span>
+            </div>
+        </fieldset>
+
+        <input type="button" class="btn-primary" id="initiateRun" value="Run" />
+        <br />
+        <a href="#" onclick="goHome()">Back</a>
+    </div>
+</body>
+</html>
